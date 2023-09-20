@@ -29,6 +29,27 @@ using namespace std;
 //     }
 // };
 
+
+
+//      RECURSIVE WAY
+
+class Solution {
+public:
+    ListNode* helper(ListNode* head) 
+    {
+        if(head->next == NULL) return head;
+        ListNode *newHead =  helper(head->next);
+        head->next->next = head;
+        head->next = NULL;
+
+        return newHead;
+    }
+    ListNode* reverseList(ListNode* head) {
+        if(head == NULL) return NULL;
+        return helper(head);
+    }
+};
+
 int main(){
     
     return 0;

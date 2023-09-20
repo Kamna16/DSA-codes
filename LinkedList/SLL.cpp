@@ -50,9 +50,11 @@ void insertInMiddle(node* &head, int val,int pos,node* &tail)
     currentnode->next = newnode;
     newnode->next = temp;
 }
-void insertRecursion()
+int TraverseRecursion(node* &head)
 {
-    
+    if (head == nullptr)
+            return 0;
+        return 1 + TraverseRecursion(head->next);
 }
 node* get(int index,node* &head)
 {
