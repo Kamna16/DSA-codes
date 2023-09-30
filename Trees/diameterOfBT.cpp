@@ -24,20 +24,21 @@ class TreeNode {
 
 class Solution {
 public:
-    void helper(TreeNode * &root, vector<int> &ans)
+int diameter = 0;
+    int helper( TreeNode* & root) //O(n^2)
     {
-        if(root == NULL)
-        {
-            return;
-        }
-        helper(root->left,ans);
-        helper(root->right,ans);
-        ans.push_back(root->data);
+        if(root == NULL) return 0;
+        int leftHeight = helper(root->left);
+        int rightHeight = helper(root->right);
+
+        int currHeight  = max(leftHeight,rightHeight) + 1;
+
+        diameter = max(diameter, leftHeight +  rightHeight);
+        return currHeight;
     }
-	vector<int> postorderTraversal(TreeNode* & root) {
-		vector<int> ans;
-        helper(root,ans);
-        return ans;
+	int diameterOfBinaryTree(TreeNode* & root) {
+        helper(root);
+		return diameter;
 	}
 };
 

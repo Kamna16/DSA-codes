@@ -24,21 +24,23 @@ class TreeNode {
 
 class Solution {
 public:
-int diameter = 0;
-    int helper( TreeNode* & root)
+    bool isTreeBalanced = true;
+    int height(TreeNode* & root)
     {
         if(root == NULL) return 0;
-        int leftHeight = helper(root->left);
-        int rightHeight = helper(root->right);
+        int leftHeight = height(root->left);
+        int rightHeight = height(root->right);
 
-        int currHeight  = max(leftHeight,rightHeight) + 1;
+        if(abs(rightHeight-leftHeight) > 1) isTreeBalanced = false;
 
-        diameter = max(diameter, leftHeight +  rightHeight);
+        int currHeight = max(leftHeight, rightHeight) +1;
+
         return currHeight;
     }
-	int diameterOfBinaryTree(TreeNode* & root) {
-        helper(root);
-		return diameter;
+	bool isBalanced(TreeNode* & root) 
+    {
+		height(root);
+        return isTreeBalanced;
 	}
 };
 

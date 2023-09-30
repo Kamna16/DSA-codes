@@ -23,20 +23,27 @@ class TreeNode {
 
 class Solution {
 public:
-    void helper(TreeNode * &root, vector<int> &ans)
+    int mini = INT_MAX;
+    int prev =-1;
+    void inorder(TreeNode* root)
     {
-        if(root == NULL)
+        if(root == NULL) return;
+        inorder(root->left);
+        if(prev == -1)
         {
-            return;
+            prev = root->data;
         }
-        ans.push_back(root->data);
-        helper(root->left,ans);
-        helper(root->right,ans);
+        else{
+            mini = min(root->data - prev, mini);
+            prev = root->data;
+        }
+        inorder(root->right);
+        return;
     }
-	vector<int> preorderTraversal(TreeNode* & root) {
-		vector<int> ans;
-        helper(root,ans);
-        return ans;
+	int minDiffInBST(TreeNode* & root) {
+		if(root == NULL || (root->left == NULL && root->right == NULL)) return 0;
+        inorder(root);
+        return mini;
 	}
 };
 
