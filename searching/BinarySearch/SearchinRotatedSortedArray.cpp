@@ -39,18 +39,21 @@ public:
     int search(vector<int>& nums, int target) {
         int pivot = findPivot(nums);
         // case 1
-        if(pivot == -1)
+        if(pivot == -1) // means no rotation happened
         {
             // normal binary search
              return binarySearch(nums, target, 0 , nums.size()-1);
         }
+
         // case 2
         if(nums[pivot] == target) return pivot;
         // case 3
         if(target >= nums[0])
         {
+            // BS in first half
             return binarySearch(nums,target,0, pivot-1);
         }
+        // BS in second half
         return binarySearch(nums,target,pivot+1,nums.size()-1);
     }
 };
