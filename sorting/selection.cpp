@@ -4,10 +4,10 @@ void selectionSort(int arr[],int n)
 {
     for(int i=1;i<=n;i++)
     {
-        int min_index = i;
-        for(int i=i;i<n;i++)
+        int min_index = arr[i];
+        for(int j=i+1;j<n;j++)
         {
-            if(min_index < arr[i]) min_index = i;
+            if(min_index < arr[j]) min_index = arr[j];
         }
         swap(arr[i], arr[min_index]);
     }
