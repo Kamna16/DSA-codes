@@ -9,6 +9,16 @@ int gcd(int a, int b) {
     }
     return a;
 }
+int gcd(int a, int b)
+    {
+        while(b%a !=0)
+        {
+            int rem = b%a;
+            b=a;
+            a=rem;
+        }
+        return a;
+    }
 
 int main() {
     int num1 = 24;
