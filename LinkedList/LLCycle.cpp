@@ -5,6 +5,28 @@ using namespace std;
       ListNode *next;
       ListNode(int x) : val(x), next(NULL) {}
   };
+
+// using map
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        unordered_map<ListNode*,int> mp;
+        ListNode *temp = head;
+        bool flag = false;
+        while(temp != NULL)
+        {
+            if(mp[temp]<=0)
+            {
+            mp[temp]++;
+            } else return true;
+            temp = temp->next;
+        }
+
+        return false;
+    }
+};
+
+// slow fast pointer
 class Solution {
 public:
     bool hasCycle(ListNode *head) {
