@@ -5,22 +5,22 @@ class Solution {
 public:
     int maxProduct(vector<int>& nums) {
         int n = nums.size();
-          int pre = 1;
-          int suff = 1;
-          int maxi = INT_MIN;
-          for(int i=0;i<n;i++)
-          {
-              if(pre == 0) pre =1;
-              if(suff == 0) suff = 1;
-              pre *= nums[i];
-              suff *= nums[n-i-1];
+        int max_product = INT_MIN;
+        int prefix =1;
+        int suffix =1;
+        for(int i=0;i<n;i++)
+        {
+            if(prefix == 0) prefix =1;
+            if(suffix == 0) suffix =1;
 
-              maxi = max(maxi, max(pre,suff));
-          }
-          return maxi;
+            prefix *= nums[i];
+            suffix *= nums[n-i-1];
+
+            max_product = max(max_product, max(prefix,suffix));
+        }    
+        return max_product;
     }
 };
-
 int main(){
     
     return 0;
