@@ -1,7 +1,44 @@
-// Online C++ compiler to run C++ program online
-#include <iostream>
-#include<vector>
-using namespace std;
+#include <bits/stdc++.h> 
+using namespace std; 
+
+class Solution{
+    public:
+        //Function to merge the arrays.
+        void merge(long long arr1[], long long arr2[], int n, int m) 
+        { 
+            vector<long long> merged;
+            int i = 0, j = 0;
+        
+            while (i < n && j < m ){
+                if (arr1[i] <= arr2[j]) {
+                    merged.push_back(arr1[i]);
+                    i++;
+                } else {
+                    merged.push_back(arr2[j]);
+                    j++;
+                }
+            }
+        
+            while (i < n) {
+                merged.push_back(arr1[i]);
+                i++;
+            }
+        
+            while (j < m) {
+                merged.push_back(arr2[j]);
+                j++;
+            }
+            for(int i=0;i<n;i++)
+            {
+                arr1[i] = merged[i];
+            }
+            for(int i=n;i<merged.size();i++)
+            {
+                arr2[i-n] = merged[i];
+            }
+        } 
+};
+
 
 vector<int> mergeArrays(vector<int>& arr1, vector<int>& arr2) {
     vector<int> merged;
