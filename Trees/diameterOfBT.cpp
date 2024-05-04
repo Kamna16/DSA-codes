@@ -1,6 +1,32 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// class Solution {
+//   public:
+//     pair<int,int> DiameterAndHeight(Node* root)
+//     {
+//         if(root == NULL){
+//             pair<int,int> p = {0,0};
+//             return p;
+//         }
+//         pair<int,int> left = DiameterAndHeight(root->left);
+//         pair<int,int> right = DiameterAndHeight(root->right);
+        
+//         int opt1= left.first;
+//         int opt2= right.first;
+//         int opt3 = left.second+right.second+1;
+        
+//         pair<int,int> ans;
+//         ans.first = max(opt1,max(opt2,opt3));
+//         ans.second = max(left.second,right.second)+1;
+//         return ans;
+//     }
+//     int diameter(Node* root) {
+//         return DiameterAndHeight(root).first;
+//     }
+// };
+
+
 class TreeNode {
     public:
         int data;
