@@ -2,12 +2,12 @@
 using namespace std;
 void selectionSort(int arr[],int n)
 {
-    for(int i=1;i<=n;i++)
+    for(int i=0;i<=n-2;i++)
     {
         int min_index = arr[i];
-        for(int j=i+1;j<n;j++)
+        for(int j=i;j<=n-1;j++)
         {
-            if(min_index < arr[j]) min_index = arr[j];
+            if(min_index > arr[j]) min_index = arr[j];
         }
         swap(arr[i], arr[min_index]);
     }
