@@ -43,35 +43,20 @@ public:
 class Solution {
 public:
     ListNode* deleteMiddle(ListNode* head) {
-         if (head == nullptr || head->next == nullptr) {
-            return nullptr; // Edge case: empty list or single node
-        }
-
-        ListNode* slow = head;
+        if(head==NULL || head->next == NULL) return NULL;
         ListNode* fast = head;
-        ListNode* prev = nullptr; // To keep track of the node before slow
-
-        while (fast != nullptr && fast->next != nullptr) {
-            prev = slow;
+        ListNode* slow = head;
+        while(fast != NULL && fast->next != NULL)
+        {
             slow = slow->next;
             fast = fast->next->next;
         }
-
-        // Now 'slow' points to the middle node
-        if (prev != nullptr) {
-            prev->next = slow->next; // Skip the middle node
-        } else {
-            // If 'prev' is nullptr, 'slow' is the head node
-            head = head->next;
+        ListNode* curr = head;
+        while(curr->next != slow)
+        {
+            curr = curr->next;
         }
-
-        delete slow; // Free the memory of the middle node
-
+        curr->next = curr->next->next;
         return head;
     }
 };
-
-int main(){
-    
-    return 0;
-}
