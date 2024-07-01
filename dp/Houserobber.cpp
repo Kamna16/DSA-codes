@@ -1,22 +1,19 @@
 #include<bits/stdc++.h>
 using namespace std;
+
+// recursion + memo
 class Solution {
 public:
-	int helper(int house, vector<int> &nums, vector<int> &dp)
-	{
-		if(house>= nums.size()) return 0;
-		if(dp[house] != -1) return dp[house];
-		int opt1 =nums[house] +  helper(house+2,nums,dp);
-		int opt2 = 0 +  helper(house+1,nums,dp);
-
-		return dp[house] = max(opt1,opt2);
-	}
-	int rob(vector<int>& nums) {
-		vector<int> dp(nums.size()+1, -1);
-		return helper(0,nums, dp);
-	}
+    int solve(vector<int> &nums,int i,vector<int> &dp)
+    {
+        if(i >= nums.size()) return 0;
+        if(dp[i] != -1) return dp[i];
+        int take = nums[i]+ solve(nums,i+2,dp);
+        int notTake =  solve(nums,i+1,dp);
+        return dp[i] = max(take,notTake);
+    }
+    int rob(vector<int>& nums) {
+        vector<int> dp(nums.size()+1,-1);
+        return solve(nums,0,dp);
+    }
 };
-int main(){
-    
-    return 0;
-}
