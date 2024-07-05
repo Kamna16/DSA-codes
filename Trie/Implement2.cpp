@@ -70,8 +70,3 @@ public:
 		temp->isEndOfword--;
 	}
 };
-
-int main(){
-    
-    return 0;
-}
