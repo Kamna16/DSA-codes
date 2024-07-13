@@ -8,6 +8,7 @@
     "regex": "cpp",
     "utility": "cpp",
     "valarray": "cpp",
-    "iostream": "cpp"
+    "iostream": "cpp",
+    "stack": "cpp"
   }
 }
