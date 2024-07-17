@@ -1,11 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-//{ Driver Code Starts
-#include<bits/stdc++.h>
-using namespace std;
 
 
-// } Driver Code Ends
 class Solution
 {
     public:
@@ -35,8 +31,3 @@ class Solution
         return ans;
     }
 };
-
-int main(){
-    
-    return 0;
-}
