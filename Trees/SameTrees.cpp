@@ -38,8 +38,3 @@ public:
         return helper(p,q);
     }
 };
-
-int main(){
-    
-    return 0;
-}
