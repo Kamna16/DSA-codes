@@ -9,6 +9,9 @@
     "utility": "cpp",
     "valarray": "cpp",
     "iostream": "cpp",
-    "stack": "cpp"
+    "stack": "cpp",
+    "chrono": "cpp",
+    "random": "cpp",
+    "limits": "cpp"
   }
 }
