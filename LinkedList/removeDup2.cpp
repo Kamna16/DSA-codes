@@ -43,7 +43,28 @@ public:
     }
 };
 
-int main(){
-    
-    return 0;
-}
+class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
+        ListNode* curr = head;
+        ListNode* prev = new ListNode(-102);
+        ListNode* newHead = prev;
+        prev->next = curr;
+        while(curr && curr->next)
+        {
+            if(curr->next->val != curr->val)
+            {
+                prev = curr;
+                curr = curr->next;
+            }else{
+                while(curr->next && curr->next->val == curr->val)
+                {
+                    curr = curr->next;
+                }
+                curr = curr->next;
+                prev->next = curr;
+            }
+        }
+        return newHead->next;
+    }
+};

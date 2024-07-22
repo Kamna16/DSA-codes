@@ -20,6 +20,27 @@ using namespace std;
 //     }
 // };
 
+class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
+        ListNode* curr = head;
+        ListNode* prev = new ListNode(INT_MIN);
+        prev->next = curr;
+        while(curr)
+        {
+            if(curr->val != prev->val)
+            {
+                prev = curr;
+                curr = curr->next;
+            }else{
+                prev->next = curr->next;
+                curr = curr->next;
+            }
+        }
+        return head;
+    }
+};
+
 int main(){
     
     return 0;
