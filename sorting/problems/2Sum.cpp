@@ -1,44 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-string read(int n, vector<int> book, int target)
-{
-    map<int,int> mp;
-    for(int i=0;i<book.size();i++)
-    {
-        int curr = book[i];
-        int more = target - book[i];
-        if(mp.find(more) != mp.end())
-        {
-            return "YES";
-        }
-        mp[curr] = i;
-    }
-    return "NO";
-}
-#include<bits/stdc++.h>
-string read(int n, vector<int> book, int target)
-{
-    sort(book.begin(), book.end());
-        int l=0, r = book.size()-1;
-        while(l<=r)
-        {
-            if((book[l]+book[r]) > target)
-            {
-                r--;
-                
-            }
-            else if((book[l]+book[r]) < target)
-            {
-                l++;
-            }
-            else
-            {
-               return "YES";
-            }
-        }
-        return "NO";
-}
-
+// Approach 1 : find = target-arr[i]; --> find in remaining arr after i
+// Approach 1 : using map to store elmnt, check in map (find = target-arr[i]) is present
 
 class Solution {
 public:
@@ -58,7 +21,27 @@ public:
     }
 };
 
-int main(){
-    
-    return 0;
-}
+
+// if input is sorted
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& numbers, int target) {
+        vector<int> ans;
+        int n = numbers.size();
+        int i=1;
+        int j= n;
+        while(i<j)
+        {
+            int num = numbers[i-1]+numbers[j-1];
+            if( num == target)
+            {
+                ans.push_back(i);
+                ans.push_back(j);
+                return ans;
+            }
+            else if(num < target) i++;
+            else j--;
+        }
+        return ans;
+    }
+};
