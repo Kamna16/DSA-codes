@@ -8,19 +8,24 @@ The repository is structured into directories based on different DSA topics. Eac
 
 
 ## Topics Covered
-
-- **Strings**
+- [Patterns](./patterns)
+- [STL C++](./STL)
+- [Strings](./String)
 - [Arrays](./Arrays)
 - [Sliding Window](./slidingwindow)
-- **Recursion**
-- **Linked Lists**
-- **Stacks and Queues**
-- **Trees**
-- **Graphs**
-- **Dynamic Programming**
-- **Greedy Algorithms**
-- **Heaps & Priority Queues**
-- **Backtracking**
-- **Hashing**
-- **Bit Manipulation**
-- **Sorting and Searching** and many more..
+- [Recursion](./Recursion)
+- [LinkedLists](./LinkedList)
+- [Stacks](./Stack)
+- [Trees](./Trees)
+- [Graphs](./Graphs)
+- [Dynamic Programming](./DynamicProgramming)
+- [Greedy Techniques](./GreedyTechniques)
+- [Heaps and Priority Queues](./Heaps&PriorityQueues)
+- [Backtracking](./backtracking)
+- [Searching](./searching)
+- [Sorting](./sorting)
+- [Blind 75 Leetcode](./blind75)
+- [Bit Manipulations](./bitManipulation)
+- [Number System](./NumberSystem)
+- [Trie](./Trie)
+- [Design data Structure Problems](./DesignDS)
