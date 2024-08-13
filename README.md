@@ -10,8 +10,8 @@ The repository is structured into directories based on different DSA topics. Eac
 ## Topics Covered
 
 - **Strings**
-- **Arrays**
-- **Sliding Window**
+- [Arrays](./Arrays)
+- [Sliding Window](./slidingwindow)
 - **Recursion**
 - **Linked Lists**
 - **Stacks and Queues**
