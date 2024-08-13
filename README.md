@@ -1,6 +1,6 @@
 # DSA Practice Solutions
 
-Welcome to my repository of Data Structures and Algorithms (DSA) practice solutions! This repository contains my solutions to various DSA problems from platforms like LeetCode, GFG, and more. The solutions are organized by topic for easy navigation and reference.
+Welcome to my repository of Data Structures and Algorithms (DSA) practice solutions! This repository contains my solutions to various DSA problems from platforms like LeetCode, GFG, and more. The solutions are organized by topic for easy navigation and reference and most Problems are solve in C++ Language.
 
 ## Repository Structure
 
