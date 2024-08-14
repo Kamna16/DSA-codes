@@ -8,7 +8,7 @@ public:
 		int n = q-p+1;
 		int m = r -q;
 		vector<int> arr1(n);
-	vector<int> arr2(m);
+		vector<int> arr2(m);
 		int j=0;
 		for(int i=p;i<=q;i++)
 		{
