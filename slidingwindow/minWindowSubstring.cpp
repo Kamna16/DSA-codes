@@ -5,14 +5,10 @@ class Solution {
 public:
     string minWindow(string s, string t) {
         int n = s.size();
-
         if(t.size()>n) return "";
-
         unordered_map<char,int> mp;
-        for(auto ch : t)
-        {
-            mp[ch]++;
-        }
+        for(auto ch : t) mp[ch]++;    
+
         int requiredCount = t.length();
         int i=0,j=0;
         int minWinSize = INT_MAX;
@@ -23,7 +19,7 @@ public:
             if(mp[ch]> 0) requiredCount--;
 
             mp[ch]--;
-            while(requiredCount==0)
+            while(requiredCount==0) // shrink window
             {
                 int currWindSize = j-i+1;
                 if(minWinSize > currWindSize){

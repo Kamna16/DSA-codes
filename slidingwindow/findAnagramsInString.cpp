@@ -1,21 +1,21 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
-class Solution{
+class Solution {
 public:
-	int search(string pat, string txt) {
-	   int n = txt.size();
-	   int m = pat.size();
+    vector<int> findAnagrams(string s, string p) {
+        int n = s.size();
+	   int m = p.size();
 	   unordered_map<char,int> mp;
 	   for(int i=0;i<m;i++)
 	   {
-	       mp[pat[i]]++;
+	       mp[p[i]]++;
 	   }
-	   int ans=0;
+	   vector<int> ans;
 	   int i=0, j=0;
 	   while(j<n)
 	   {
-	       mp[txt[j]]--;
+	       mp[s[j]]--;
 	       
 	       if(j-i+1 == m)
 	       {
@@ -28,30 +28,16 @@ public:
 	                   break;
 	               }
 	           }
-	           if(!greater) ans++;
+	           if(!greater){
+                ans.push_back(i);
+               }
 	           
-	           mp[txt[i]]++; // decrease window
+	           mp[s[i]]++;
 	           i++;
 	       }
-	       
 	       j++;
 	   }
 	   
 	   return ans;
-	}
-
-};
-
-
-int main() {
-    int t;
-    cin >> t;
-    while (t--) {
-        string pat, txt;
-        cin >> txt >> pat;
-        Solution ob;
-        auto ans = ob.search(pat, txt);
-        cout << ans << "\n";
     }
-    return 0;
-}
+};
