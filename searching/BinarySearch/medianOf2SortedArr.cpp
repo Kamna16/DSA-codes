@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
+// https://leetcode.com/problems/median-of-two-sorted-arrays/description/
 // brute force
 class Solution {
 public:
@@ -67,8 +68,3 @@ public:
     return 0; //dummy statement
 	}
 };
-
-int main(){
-    
-    return 0;
-}

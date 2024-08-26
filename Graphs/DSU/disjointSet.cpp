@@ -1,5 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
+
+// By rank and path compression
 class DisjointSet {
     vector<int> rank, parent, size; 
 public: 
