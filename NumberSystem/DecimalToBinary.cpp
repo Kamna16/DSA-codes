@@ -16,7 +16,7 @@ string convertDecimalToBinary(int decimalNumber) {
 }
 
 int main() {
-    int decimalNumber = 42;
+    int decimalNumber = 14;
     string binary = convertDecimalToBinary(decimalNumber);
     cout << "Binary representation: " << binary << endl;
 
