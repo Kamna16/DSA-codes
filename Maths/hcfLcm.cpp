@@ -1,25 +1,26 @@
 #include <iostream>
 using namespace std;
 
-int calculateHCF(int a, int b) {
-    if (b == 0)
-        return a;
-    return calculateHCF(b, a % b);
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
 }
 
-int calculateLCM(int a, int b) {
-    int hcf = calculateHCF(a, b);
-    return (a * b) / hcf;
+int lcm(int a, int b) {
+    return (a * b) / gcd(a, b);
 }
 
 int main() {
-    int num1 = 12;
-    int num2 = 18;
-    int hcf = calculateHCF(num1, num2);
-    int lcm = calculateLCM(num1, num2);
+    int a, b;
+    cout << "Enter two numbers: ";
+    cin >> a >> b;
 
-    cout << "HCF of " << num1 << " and " << num2 << " is: " << hcf << endl;
-    cout << "LCM of " << num1 << " and " << num2 << " is: " << lcm << endl;
+    cout << "GCD (HCF) of " << a << " and " << b << " is: " << gcd(a, b) << endl;
+    cout << "LCM of " << a << " and " << b << " is: " << lcm(a, b) << endl;
 
     return 0;
 }

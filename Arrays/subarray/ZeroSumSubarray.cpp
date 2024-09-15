@@ -1,16 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-//{ Driver Code Starts
-//Initial function template for C++
-
-#include<bits/stdc++.h>
-using namespace std;
-
-
-// } Driver Code Ends
-//User function template for C++
-
 class Solution{
 public:
     //Function to count subarrays with sum equal to 0.

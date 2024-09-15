@@ -18,7 +18,22 @@ int gcd(int a, int b)
             a=rem;
         }
         return a;
+}
+int hcf(int a, int b) {
+    if (a < b) {
+        int temp = a;
+        a = b;
+        b = temp;
     }
+
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+
+    return a;
+}
 
 int main() {
     int num1 = 24;
