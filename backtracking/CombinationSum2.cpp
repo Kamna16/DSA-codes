@@ -33,39 +33,29 @@ public:
 
 class Solution {
 public:
-    void recur(vector<int>& candidates,int ind, int target, vector<int> &list,vector<vector<int>> &ans)
+    vector<vector<int>> ans;
+    void solve(vector<int>& nums, int target,vector<int> & curr, int idx)
     {
         if(target == 0)
         {
-            ans.push_back(list);
+            if(find(ans.begin(), ans.end(), curr) != ans.end()) return;
+            ans.push_back(curr);
             return;
         }
 
-        for(int i=ind;i<candidates.size();i++)
+        for(int i=idx;i<nums.size();i++)
         {
-            if(i>ind && candidates[i]==candidates[i-1]) continue;
-            if(candidates[i]>target) break;
-
-                //pick
-            list.push_back(candidates[i]);
-            //not pick
-            recur(candidates,i+1,target-candidates[i],list,ans);
-            list.pop_back(); // backtrack step
-        
+            if(i > idx && nums[i] == nums[i-1]) continue;
+            if(nums[i]>target) break;
+            curr.push_back(nums[i]);
+            solve(nums,target-nums[i],curr,i+1);
+            curr.pop_back();
         }
-        
-
     }
     vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
+        vector<int> curr;
         sort(candidates.begin(),candidates.end());
-        vector<int> list;
-        vector<vector<int>> ans;
-        recur(candidates,0,target,list,ans);
+        solve(candidates,target,curr,0);
         return ans;
     }
 };
-
-int main(){
-    
-    return 0;
-}
