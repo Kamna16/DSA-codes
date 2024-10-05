@@ -1,5 +1,4 @@
-#include<iostream>
-#include<vector>
+#include<bits/stdc++.h>
 using namespace std;
 class Solution {
 public:
@@ -60,18 +59,63 @@ public:
 		return arr;
 	}
 };
-
-int main(){
-    
-    return 0;
+void merge(int arr[], int l, int m, int h)
+{
+	int n1 = m-l+1;
+	int n2 = h-m;
+	int arr1[n1];
+	int arr2[n2];
+	for(int i=l;i<=m;i++)
+	{
+		arr1[i] = arr[i];
+	}
+	for(int i=m+1;i<=h;i++)
+	{
+		arr1[i] = arr[i];
+	}
+	int i=0, j=0; 
+	int k=0;
+	while(i< n1 && j<n2)
+	{
+		if(arr1[i] <= arr2[j])
+		{
+			arr[k] = arr[i];
+			i++;
+		}else if(arr1[i] > arr2[j]){
+			arr[k] = arr[j];
+			j++;
+		}
+		k++;
+	}
+	while(i<n1)
+	{
+		arr[k] = arr[i];
+		i++;
+		k++;
+	}
+	while(j<n2)
+	{
+		arr[k] = arr[j];
+		j++;
+		k++;
+	}
 }
 
+void mergerSort(int arr[], int l, int h)
+{
+	int mid = l+h/2;
+	mergerSort(arr,l,mid);
+	mergerSort(arr,mid+1,h);
+	merge(arr,l,mid,h);
+}
+// -------------------------------------------------------------------------------------
+int main(){
+	int arr[] = {3,6,4,9,2,5,10,1};
 
-
-
-
-
-
-
-
-
+	mergerSort(arr,0,8);
+	for(int i=0;i<8;i++)
+	{
+		cout<<arr[i]<<" ";
+	}
+	return 0;
+}
